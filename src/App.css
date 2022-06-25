@@ -1,38 +1,72 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.Navbar{
+  width: 100%;
+  height: 10vh;
+  background-color: rgb(35, 29, 29);
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+.logo{
+  color: rgb(145, 145, 145);
+  font-weight: bold;
+  font-family: 'Anton', sans-serif;
+  font-size: 2.5rem;
+}
+nav ul li{
+  display: inline-block;
+  margin: 0.2rem;
+  color: rgb(145, 145, 145);
+  font-weight: bold;
+  font-family: 'Anton', sans-serif;
+  font-size: 1.4rem;
+}
+nav ul li:hover{
+  cursor: pointer;
+  color: rgb(209, 209, 209); 
+}
+nav div{
+  margin-left: 1rem;
+  transition: 0.5s;
+}
+nav div:hover{
+  cursor: pointer;
+  color: rgb(209, 209, 209); 
+}
+nav ul{
+  margin-left: auto;
+  margin-right: 1rem;
+}
+.line{
+  width: 1.3rem;
+  height: 0.3rem;
+  background-color: rgb(145, 145, 145);
+  margin-top: 2px;
+  border-radius: 2px;
+}
+.line:hover{
+  cursor: pointer;
+  color: rgb(209, 209, 209); 
+}
+.menu{
+  margin-left: auto;
+  margin-right: 1rem;
+  display: none;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media all and (max-height: 600px) {
+  html{
+    font-size: 10px;
   }
-  to {
-    transform: rotate(360deg);
+}
+@media all and (max-height: 350px) {
+  html{
+    font-size: 7px;
+  }
+}
+@media all and (max-width: 600px) {
+  .menu{
+    display: block;
+  }
+  nav ul{
+    display: none;
   }
 }
