@@ -1,3 +1,9 @@
+body{
+  height: 100vh;
+  width: 100%;
+  background-color: rgb(57, 52, 52);
+}
+/*Navbar*/
 .Navbar{
   width: 100%;
   height: 10vh;
@@ -36,22 +42,44 @@ nav ul{
   margin-right: 1rem;
 }
 .line{
-  width: 1.3rem;
-  height: 0.3rem;
+  width: 1.5rem;
+  height: 0.4rem;
   background-color: rgb(145, 145, 145);
   margin-top: 2px;
   border-radius: 2px;
 }
-.line:hover{
+.menu:hover .line{
   cursor: pointer;
-  color: rgb(209, 209, 209); 
+  background-color: rgb(255, 255, 255); 
 }
 .menu{
   margin-left: auto;
   margin-right: 1rem;
   display: none;
 }
+/* Carousel*/
+.carousel-container{
+  width: 80%;
+  margin: auto;
+  margin-top: 2rem;
+  border-radius: 5rem;
+  overflow: hidden;
+}
+.carousel{
+  width: 160vw;
+  height: 25vh;
+  background-color: rgb(204, 204, 204);
+  border-radius: 5rem;
+  display: flex;
+}
+.token{
+  width: 15vw; 
+  height: 20vh;
+  background-color: yellow;
+  margin: auto;
+}
 
+/*Responsive*/
 @media all and (max-height: 600px) {
   html{
     font-size: 10px;

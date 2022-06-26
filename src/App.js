@@ -1,9 +1,13 @@
 import Navbar from './modules/Navbar';
+import Carousel from './modules/Carousel';
 import './App.css';
 
 function App() {
   return (
-    <Navbar/>
+    <div>
+      <Navbar/>
+      <Carousel/>
+    </div>
   );
 }
 
