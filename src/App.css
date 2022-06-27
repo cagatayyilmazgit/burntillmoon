@@ -59,6 +59,7 @@ nav ul{
 }
 /* Carousel*/
 .carousel-container{
+  position: relative;
   width: 80%;
   margin: auto;
   margin-top: 2rem;
@@ -77,6 +78,20 @@ nav ul{
   height: 20vh;
   background-color: yellow;
   margin: auto;
+}
+#prevButtonContainer{
+  position: absolute;
+  bottom: 45%;
+  left: 1vw;
+  cursor: pointer;
+  opacity: 0.5;
+}
+#nextButtonContainer{
+  position: absolute;
+  bottom: 45%;
+  right: 1vw;
+  cursor:pointer;
+  opacity: 0.5;
 }
 
 /*Responsive*/
