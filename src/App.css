@@ -74,10 +74,11 @@ nav ul{
   display: flex;
 }
 .token{
-  width: 15vw; 
+  width: 18vw; 
   height: 20vh;
   background-color: yellow;
   margin: auto;
+  transition: 1s;
 }
 #prevButtonContainer{
   position: absolute;
@@ -85,6 +86,7 @@ nav ul{
   left: 1vw;
   cursor: pointer;
   opacity: 0.5;
+  z-index: 5;
 }
 #nextButtonContainer{
   position: absolute;
@@ -92,6 +94,7 @@ nav ul{
   right: 1vw;
   cursor:pointer;
   opacity: 0.5;
+  z-index: 5;
 }
 
 /*Responsive*/
