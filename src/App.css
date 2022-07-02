@@ -67,18 +67,26 @@ nav ul{
   overflow: hidden;
 }
 .carousel{
-  width: 160vw;
+  width: 320vw;
   height: 25vh;
   background-color: rgb(204, 204, 204);
   border-radius: 5rem;
   display: flex;
+}
+.tokenGroup{
+  transform: translateX(-80vw);
+  width: 80vw;
+  height: 20vh;
+  display: flex;
+  margin: auto;
+  transition: 1s;
 }
 .token{
   width: 18vw; 
   height: 20vh;
   background-color: yellow;
   margin: auto;
-  transition: 1s;
+
 }
 #prevButtonContainer{
   position: absolute;
