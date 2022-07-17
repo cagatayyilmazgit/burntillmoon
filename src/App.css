@@ -84,9 +84,19 @@ nav ul{
 .token{
   width: 18vw; 
   height: 20vh;
-  background-color: yellow;
   margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
 
+}
+.token img{
+  margin-left:auto;
+  margin-right:auto;
+  margin-bottom: 1rem;
+  height: 10vh;
+  width: 10vw;
 }
 #prevButtonContainer{
   position: absolute;

@@ -1,13 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
+import Tokens from "./Token";
+import { useState } from "react";
 
 const tokenGroups = document.getElementsByClassName("tokenGroup");
 let counter = -80;
-console.log(counter/80)
 
 function next(){
-        console.log(counter/80)
         if(counter/80 >= 0) return;
         counter += 80;
         for(let i = 0; i < tokenGroups.length; i++){
@@ -18,7 +18,6 @@ function next(){
 }
 
 function prev(){
-        console.log(counter/80)
         if(counter/80 <= -tokenGroups.length +1) return;
         counter -= 80;
         for(let i = 0; i < tokenGroups.length; i++){
@@ -48,11 +47,22 @@ function transitionEnd(){
             tokenGroups[i].style.transform = "translateX(" + counter + "vw)";
         }
     }
-}
+}  
 
+async function getBurnedTokenBscScan(contractAdress,walletAdress,apiKey){
+    contractAdress = "0x965F527D9159dCe6288a2219DB51fc6Eef120dD1"
+    walletAdress = "0x000000000000000000000000000000000000dead"
+    apiKey = "IAFC45SXZ1G5J3D85S3VJJ4Q7USKK38CEM"
+    const profileResponse = await fetch('https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress=' + contractAdress + '&address=' + walletAdress + '&apikey=' + apiKey);
+    const profile = await profileResponse.json();
+    console.log(profile.result.slice(0,profile.result.length-18)/10);
+}
+getBurnedTokenBscScan();
 
 
 export default function Carousel(){
+    
+
     return(
         <div className="carousel-container">
             <div id="prevButtonContainer">
@@ -60,8 +70,12 @@ export default function Carousel(){
             </div>
             <div className="carousel">
             <div className="tokenGroup" id="firstClone">
-                <div className="token">token4</div>
-                <div className="token">token5</div>
+                <Tokens 
+                image="bsw" 
+                burnedPercentage = "0"
+                dailyBurnRate = "0,001" 
+                price = "0,31"/>
+                <Tokens image="avax.png" burnedPercentage = "59" dailyBurnRate = "0,001" price = "0,31"/>
                 <div className="token">token6</div>
             </div>
                 <div className="tokenGroup" id="tokenGroup1">
@@ -70,8 +84,8 @@ export default function Carousel(){
                     <div className="token">token3</div>
                 </div>
                 <div className="tokenGroup" id="tokenGroup2">
-                    <div className="token">token4</div>
-                    <div className="token">token5</div>
+                    <Tokens image="bsw.png" burnedPercentage = "0" dailyBurnRate = "0,001" price = "0,31"/>
+                    <Tokens image="avax.png" burnedPercentage = "59" dailyBurnRate = "0,001" price = "0,31"/>
                     <div className="token">token6</div>
                 </div>
                 <div className="tokenGroup" id="lastClone" onTransitionEnd={transitionEnd}>
