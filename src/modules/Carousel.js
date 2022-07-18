@@ -1,8 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import Tokens from "./Token";
-import { useState } from "react";
+import axios from "axios";
+import tokenInfo from "../tokens.json"
+
 
 const tokenGroups = document.getElementsByClassName("tokenGroup");
 let counter = -80;
@@ -49,19 +51,18 @@ function transitionEnd(){
     }
 }  
 
-async function getBurnedTokenBscScan(contractAdress,walletAdress,apiKey){
-    contractAdress = "0x965F527D9159dCe6288a2219DB51fc6Eef120dD1"
-    walletAdress = "0x000000000000000000000000000000000000dead"
-    apiKey = "IAFC45SXZ1G5J3D85S3VJJ4Q7USKK38CEM"
-    const profileResponse = await fetch('https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress=' + contractAdress + '&address=' + walletAdress + '&apikey=' + apiKey);
-    const profile = await profileResponse.json();
-    console.log(profile.result.slice(0,profile.result.length-18)/10);
-}
-getBurnedTokenBscScan();
-
 
 export default function Carousel(){
-    
+       
+    const [burnedBSW, setBurnedBSW] = useState();
+
+    useEffect((contract) => {
+        // BSW
+        contract = tokenInfo.bsw[0].contractaddress;
+        axios
+            .get('https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress=' + contract + '&address=0x000000000000000000000000000000000000dead&apikey=IAFC45SXZ1G5J3D85S3VJJ4Q7USKK38CEM')
+            .then(res=>{setBurnedBSW(res.data.result.slice(0,res.data.result.length - 18))})
+    }, [])
 
     return(
         <div className="carousel-container">
@@ -84,7 +85,7 @@ export default function Carousel(){
                     <div className="token">token3</div>
                 </div>
                 <div className="tokenGroup" id="tokenGroup2">
-                    <Tokens image="bsw.png" burnedPercentage = "0" dailyBurnRate = "0,001" price = "0,31"/>
+                    <Tokens image="bsw.png" burnedPercentage = {burnedBSW} dailyBurnRate = "0,001" price = "0,31"/>
                     <Tokens image="avax.png" burnedPercentage = "59" dailyBurnRate = "0,001" price = "0,31"/>
                     <div className="token">token6</div>
                 </div>
