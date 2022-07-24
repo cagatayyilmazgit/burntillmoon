@@ -98,6 +98,14 @@ nav ul{
   height: 10vh;
   width: 10vw;
 }
+.token span{
+  font-weight: 800;
+  color: red;
+  transition: 1s ;
+}
+.token div{
+  font-weight: 500;
+}
 #prevButtonContainer{
   position: absolute;
   bottom: 45%;
@@ -114,6 +122,8 @@ nav ul{
   opacity: 0.5;
   z-index: 5;
 }
+
+
 
 /*Responsive*/
 @media all and (max-height: 600px) {
